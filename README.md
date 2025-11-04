@@ -1,7 +1,8 @@
 ![CI](https://github.com/jenia91/SmartIrrigationSystem_C8051F380/actions/workflows/ci.yml/badge.svg?branch=main)
 # Smart Irrigation – C8051F380
 
-<img width="1267" height="858" alt="PROTEUS" src="https://github.com/user-attachments/assets/e981848e-2709-45a3-b486-899f425eb4c9" />
+<img width="1267" height="858" alt="PROTEUS" src="https://github.com/user-attachments/assets/8a1a4430-9546-4d39-900c-5c27c7462f74" />
+
 
 
 Embedded irrigation controller on **C8051F380 (48 MHz)**.
