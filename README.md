@@ -22,3 +22,8 @@ Embedded irrigation controller on **C8051F380 (48 MHz)**.
 **Build (compile-only)**
 ```bash
 sdcc -mmcs51 -c *.c
+## Quick links
+- **Main code:** [`src/MainProject_Menu.c`](./src/MainProject_Menu.c)
+- **MCU init / clocks / PCA / I²C / SPI:** [`src/init380.c`](./src/init380.c)
+- **Headers:** [`src/include/`](./src/include/)
+- **Vendor (local-only, git-ignored
