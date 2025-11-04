@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+jobs:
+  static-analysis:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install cppcheck
+        run: sudo apt-get update && sudo apt-get install -y cppcheck
+
+      # Stub header to replace the proprietary vendor header during CI
+      - name: Create vendor stubs
+        run: |
+          mkdir -p ci/stubs
+          cat > ci/stubs/initsysSPI.h <<'EOF'
+          /* Minimal stubs to let analysis parse GUI/SPI calls */
+          #ifndef INIT_SYS_SPI_STUB_H
+          #define INIT_SYS_SPI_STUB_H
+          void initSysSpi(void);
+          void delay_ms(int ms);
+          void delay_us(int us);
+          void TouchSet(int xmin,int xmax,int ymax,int ymin);
+          int  ReadTouchX(void);
+          int  ReadTouchY(void);
+          int  ButtonTouch(int x,int y);
+          void LCD_fillScreen(int color);
+          void LCD_fillRect(int x,int y,int w,int h,int color);
+          void LCD_drawButton(int id,int x,int y,int w,int h,int r,int bg,int fg,const char* label,int size);
+          void LCD_setCursor(int x,int y);
+          void LCD_setText1Color(int color);
+          void LCD_setText2Color(int fg,int bg);
+          void LCD_setTextSize(int size);
+          void LCD_print2C(int x,int y,const char* txt,int size,int fg,int bg);
+          #endif
+          EOF
+
+      - name: Run cppcheck
+        run: |
+          cppcheck \
+            --enable=warning,style,performance,portability \
+            --inline-suppr \
+            --suppress=missingIncludeSystem \
+            --force \
+            -I src/include -I ci/stubs \
+            src || true
