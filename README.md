@@ -26,4 +26,6 @@ sdcc -mmcs51 -c *.c
 - **Main code:** [`src/MainProject_Menu.c`](./src/MainProject_Menu.c)
 - **MCU init / clocks / PCA / I²C / SPI:** [`src/init380.c`](./src/init380.c)
 - **Headers:** [`src/include/`](./src/include/)
-- **Vendor (local-only, git-ignored
+- **Vendor (local-only, git-ignored)
+
+## Repo map
