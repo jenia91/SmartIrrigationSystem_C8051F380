@@ -1,10 +1,8 @@
 
-````md
 ![CI](https://github.com/jenia91/SmartIrrigationSystem_C8051F380/actions/workflows/ci.yml/badge.svg?branch=main)
 
 # Smart Irrigation – C8051F380
-
-<img alt="Proteus schematic" src="https://github.com/user-attachments/assets/8a1a4430-9546-4d39-900c-5c27c7462f74" width="800" />
+<img width="1267" height="858" alt="PROTEUS" src="https://github.com/user-attachments/assets/83e4cf8b-73bf-4acf-9e26-734299f84751" />
 
 Embedded irrigation controller on **C8051F380 (48 MHz)**.
 
@@ -21,9 +19,9 @@ Embedded irrigation controller on **C8051F380 (48 MHz)**.
 - SYSCLK = **48 MHz** (`OSCICN=0xC3`, `FLSCL=0x90`, `CLKSEL=0x03`)
 
 ## Build (compile-only)
-```bash
+bash
 sdcc -mmcs51 -c *.c
-````
+
 
 ## Quick links
 
